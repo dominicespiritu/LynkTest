@@ -1,0 +1,23 @@
+<section>
+  <div class="page-header">
+    <h1>Histories</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="history in vm.histories"
+       ui-sref="histories.view({ historyId: history._id })"
+       class="list-group-item"> <!-- {{history}} -->
+      <small class="list-group-item-text">
+        Logged on
+        <span ng-bind="history.created | date:'mediumDate'"></span>
+        : from
+        <span ng-if="history.user" ng-bind="history.user.displayName"></span>
+        <span ng-if="!history.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading">{{history.name}} : {{history.project.name}}</h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.histories.$resolved && !vm.histories.length">
+    No Histories yet, why don't you <a ui-sref="histories.create">create one</a>?
+  </div>
+
+</section>

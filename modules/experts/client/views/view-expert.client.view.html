@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.expert.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.expert.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="experts.edit({ expertId: vm.expert._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.expert.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.expert.user"
+            ng-bind="vm.expert.user.displayName"></span>
+      <span ng-if="!vm.expert.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.expert.content"></p>
+</section>
