@@ -64,4 +64,8 @@ Run your application using gulp:
 $ gulp
 ```
 
+or:
 
+```bash
+$ node server.js
+```
